@@ -1,6 +1,6 @@
 app-id: com.github.skullernet.q2pro
 runtime: org.freedesktop.Platform
-runtime-version: '19.08'
+runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
 command: q2pro.sh
 rename-icon: q2pro
