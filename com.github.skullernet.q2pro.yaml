@@ -36,10 +36,13 @@ modules:
       - install -Dm644 src/unix/res/q2pro.desktop -t /app/share/applications
       - install -Dm644 q2pro.svg -t /app/share/icons/hicolor/scalable/apps
     sources:
-      - type: git
-        url: https://github.com/skullernet/q2pro.git
-        tag: r1826
-        commit: 7ad132affeba68a91984852851630b2fe417c307
+      - type: archive
+        url: https://github.com/skullernet/q2pro/archive/refs/tags/r1826.tar.gz
+        sha256: d2b8d20079194f9820ee6c1e34030341af532faae839e4aaf9336737a8d0b6d8
+        x-checker-data:
+          type: anitya
+          project-id: 197628
+          url-template: https://github.com/skullernet/q2pro/archive/refs/tags/$version.tar.gz
       - type: file
         path: com.github.skullernet.q2pro.metainfo.xml
       - type: file
