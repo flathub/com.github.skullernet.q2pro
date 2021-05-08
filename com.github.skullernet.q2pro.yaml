@@ -28,7 +28,7 @@ modules:
       - CONFIG_PATH_HOME=/var/data
     build-commands:
       - install -D q2pro.sh -t /app/bin
-      - desktop-file-edit --set-key=Exec --set-value=q2pro.sh src/unix/res/q2pro.desktop
+      - desktop-file-edit --set-key=Exec --set-value='q2pro.sh +connect %u' src/unix/res/q2pro.desktop
       - desktop-file-edit --add-mime-type=x-scheme-handler/quake2 src/unix/res/q2pro.desktop
       - install -D q2pro -t /app/bin
       - install -D src/client/ui/q2pro.menu -t /app/bin/baseq2
@@ -52,4 +52,4 @@ modules:
         dest-filename: q2pro.sh
         commands:
           - ls ${XDG_DATA_HOME}/baseq2/pak0.pak || zenity --error --text "Game data (/baseq2/ etc.)  must be added to:\n${XDG_DATA_HOME}/baseq2/" --ok-label "Close" --width=400
-          - /app/bin/q2pro +connect %u "$@"
+          - /app/bin/q2pro "$@"
