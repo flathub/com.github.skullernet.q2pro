@@ -38,7 +38,8 @@
   <url type="homepage">http://skuller.net/q2pro</url>
 
   <releases>
-    <release version="3.12.2" date="2018-12-28">
+    <release version="r1861" date="2021-09-12"/>
+    <release version="r1826" date="2018-12-28">
       <description>
         <p>Make timescale check period configurable.</p>
       </description>
