@@ -6,11 +6,12 @@ command: q2pro.sh
 rename-icon: q2pro
 rename-desktop-file: q2pro.desktop
 finish-args:
-  - --share=network
-  - --share=ipc
-  - --socket=x11
-  - --socket=pulseaudio
   - --device=dri
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
 modules:
   - name: q2pro
     no-autogen: true
