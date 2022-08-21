@@ -40,8 +40,8 @@ modules:
       - install -Dm644 q2pro.svg -t /app/share/icons/hicolor/scalable/apps
     sources:
       - type: archive
-        url: https://github.com/skullernet/q2pro/archive/refs/tags/r1861.tar.gz
-        sha256: 4632364d91de91e0e4e5b1522e60b6244a7a952401d356c154c9a12668e9371e
+        url: https://github.com/skullernet/q2pro/archive/refs/tags/r2004.tar.gz
+        sha256: 3a276e4a0fe1ebc7501fa23fcc22b2ec67e1a0f0c38f512c5335fe0d515f719b
         x-checker-data:
           type: anitya
           project-id: 197628
