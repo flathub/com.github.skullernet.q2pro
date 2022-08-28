@@ -35,13 +35,13 @@ modules:
       - desktop-file-edit --add-mime-type=x-scheme-handler/quake2 ${FLATPAK_BUILDER_BUILDDIR}/src/unix/res/q2pro.desktop
       - install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/src/unix/res/q2pro.desktop -t ${FLATPAK_DEST}/share/applications
     sources:
-      - type: archive
-        url: https://github.com/skullernet/q2pro/archive/refs/tags/r2146.tar.gz
-        sha256: 368968ef1f64c883069fbb3680820025a225e8393c0df848e3fa61e5cefd84de
+      - type: git
+        url: https://github.com/skullernet/q2pro.git
+        tag: r2146
+        commit: 0211345218d590ad9887ab2292e8284a9bcdac67
         x-checker-data:
-          type: anitya
-          project-id: 197628
-          url-template: https://github.com/skullernet/q2pro/archive/refs/tags/$version.tar.gz
+          type: git
+          tag-pattern: ^r([\d.]+)$
       - type: file
         path: com.github.skullernet.q2pro.metainfo.xml
       - type: file
