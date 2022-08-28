@@ -1,6 +1,6 @@
 app-id: com.github.skullernet.q2pro
 runtime: org.freedesktop.Platform
-runtime-version: '20.08'
+runtime-version: '21.08'
 sdk: org.freedesktop.Sdk
 command: q2pro.sh
 rename-icon: q2pro
@@ -8,39 +8,36 @@ rename-desktop-file: q2pro.desktop
 finish-args:
   - --share=network
   - --share=ipc
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --socket=pulseaudio
   - --device=dri
 modules:
   - name: q2pro
-    no-autogen: true
-    no-make-install: true
-    make-args:
-      - CONFIG_PNG=y
-      - PNG_CFLAGS=
-      - PNG_LIBS=-lpng16
-      - CONFIG_JPEG=y
-      - CONFIG_HTTP=y
-      - CONFIG_OPENAL=y
-      - CONFIG_DIRECT_SOUND=y
-      - CONFIG_PATH_DATA=/app/bin
-      - CONFIG_PATH_LIB=/app/bin
-      - CONFIG_PATH_HOME=/var/data
-    build-commands:
-      - install -D q2pro.sh -t /app/bin
-      - desktop-file-edit --set-key=Exec --set-value='q2pro.sh +connect %u' src/unix/res/q2pro.desktop
-      - desktop-file-edit --add-mime-type=x-scheme-handler/quake2 src/unix/res/q2pro.desktop
-      - install -D q2pro -t /app/bin
-      - install -D src/client/ui/q2pro.menu -t /app/bin/baseq2
-      - install -D game$(uname -m | sed -e s/i.86/i386/ -e s/amd64/x86_64/ -e s/sun4u/sparc64/
-        -e s/arm.*/arm/ -e s/sa110/arm/ -e s/alpha/axp/).so -t /app/bin/baseq2
-      - install -Dm644 com.github.skullernet.q2pro.metainfo.xml -t /app/share/metainfo
-      - install -Dm644 src/unix/res/q2pro.desktop -t /app/share/applications
-      - install -Dm644 q2pro.svg -t /app/share/icons/hicolor/scalable/apps
+    buildsystem: meson
+    builddir: true
+    build-options:
+      config-opts:
+        - --werror
+        - --fatal-meson-warnings
+        - -Danticheat-server=true
+        - -Dclient-gtv=true
+        - -Dhomedir=/var/data
+        - -Doss=auto
+        - -Dpacketdup-hack=true
+        - -Dtests=true
+        - -Dvariable-fps=true
+    post-install:
+      - install -Dm775 ../q2pro.sh -t ${FLATPAK_DEST}/bin/
+      - install -Dm644 ../q2pro.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps
+      - install -Dm644 ../com.github.skullernet.q2pro.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
+      - desktop-file-edit --set-key=Exec --set-value='q2pro.sh +connect %u' ${FLATPAK_BUILDER_BUILDDIR}/src/unix/res/q2pro.desktop
+      - desktop-file-edit --add-mime-type=x-scheme-handler/quake2 ${FLATPAK_BUILDER_BUILDDIR}/src/unix/res/q2pro.desktop
+      - install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/src/unix/res/q2pro.desktop -t ${FLATPAK_DEST}/share/applications
     sources:
       - type: archive
-        url: https://github.com/skullernet/q2pro/archive/refs/tags/r2004.tar.gz
-        sha256: 3a276e4a0fe1ebc7501fa23fcc22b2ec67e1a0f0c38f512c5335fe0d515f719b
+        url: https://github.com/skullernet/q2pro/archive/refs/tags/r2146.tar.gz
+        sha256: 368968ef1f64c883069fbb3680820025a225e8393c0df848e3fa61e5cefd84de
         x-checker-data:
           type: anitya
           project-id: 197628
@@ -49,10 +46,10 @@ modules:
         path: com.github.skullernet.q2pro.metainfo.xml
       - type: file
         path: q2pro.svg
+      - type: patch
+        path: meson_version.patch
       - type: script
         dest-filename: q2pro.sh
         commands:
-          - ls ${XDG_DATA_HOME}/baseq2/pak0.pak || zenity --error --text "Game data
-            (/baseq2/ etc.)  must be added to:\n${XDG_DATA_HOME}/baseq2/" --ok-label
-            "Close" --width=400
+          - ls ${XDG_DATA_HOME}/baseq2/pak0.pak || zenity --error --text "Game data (/baseq2/ etc.)  must be added to:\n${XDG_DATA_HOME}/baseq2/" --ok-label "Close" --width=400
           - /app/bin/q2pro "$@"
