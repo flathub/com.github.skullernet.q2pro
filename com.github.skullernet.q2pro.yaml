@@ -36,8 +36,8 @@ modules:
       - install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/src/unix/res/q2pro.desktop -t ${FLATPAK_DEST}/share/applications
     sources:
       - type: archive
-        url: https://github.com/skullernet/q2pro/archive/refs/tags/r2146.tar.gz
-        sha256: 368968ef1f64c883069fbb3680820025a225e8393c0df848e3fa61e5cefd84de
+        url: https://github.com/skullernet/q2pro/archive/refs/tags/r2004.tar.gz
+        sha256: 3a276e4a0fe1ebc7501fa23fcc22b2ec67e1a0f0c38f512c5335fe0d515f719b
         x-checker-data:
           type: anitya
           project-id: 197628
@@ -51,5 +51,7 @@ modules:
       - type: script
         dest-filename: q2pro.sh
         commands:
-          - ls ${XDG_DATA_HOME}/baseq2/pak0.pak || zenity --error --text "Game data (/baseq2/ etc.)  must be added to:\n${XDG_DATA_HOME}/baseq2/" --ok-label "Close" --width=400
+          - ls ${XDG_DATA_HOME}/baseq2/pak0.pak || zenity --error --text "Game data
+            (/baseq2/ etc.)  must be added to:\n${XDG_DATA_HOME}/baseq2/" --ok-label
+            "Close" --width=400
           - /app/bin/q2pro "$@"
