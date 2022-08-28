@@ -37,7 +37,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/skullernet/q2pro/archive/refs/tags/r2146.tar.gz
-        sha256: 796a4963d80113610b974fd13b4c18df5f4638db9c7352b5d2ba2bf528dc1242
+        sha256: 368968ef1f64c883069fbb3680820025a225e8393c0df848e3fa61e5cefd84de
         x-checker-data:
           type: anitya
           project-id: 197628
