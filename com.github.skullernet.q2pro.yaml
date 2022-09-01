@@ -1,6 +1,6 @@
 app-id: com.github.skullernet.q2pro
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: q2pro.sh
 rename-icon: q2pro
@@ -46,8 +46,6 @@ modules:
         path: com.github.skullernet.q2pro.metainfo.xml
       - type: file
         path: q2pro.svg
-      - type: patch
-        path: meson_version.patch
       - type: script
         dest-filename: q2pro.sh
         commands:
