@@ -18,7 +18,8 @@ modules:
     builddir: true
     build-options:
       config-opts:
-#       - --werror
+        - --werror
+        - --Wno-array-bounds
         - --fatal-meson-warnings
         - -Danticheat-server=true
         - -Dclient-gtv=true
