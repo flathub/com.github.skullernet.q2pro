@@ -18,16 +18,7 @@ modules:
     builddir: true
     build-options:
       config-opts:
-        - --werror
-        - --Wno-array-bounds
-        - --fatal-meson-warnings
-        - -Danticheat-server=true
-        - -Dclient-gtv=true
         - -Dhomedir=/var/data
-        - -Doss=auto
-        - -Dpacketdup-hack=true
-        - -Dtests=true
-        - -Dvariable-fps=true
     post-install:
       - install -Dm775 ../q2pro.sh -t ${FLATPAK_DEST}/bin/
       - install -Dm644 ../q2pro.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps
