@@ -29,8 +29,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/skullernet/q2pro.git
-        tag: r2146
-        commit: 0211345218d590ad9887ab2292e8284a9bcdac67
+        tag: r2261
+        commit: d3229bb898a52e39668e4e73407a6e82776549a7
         x-checker-data:
           type: git
           tag-pattern: ^r([\d.]+)$
@@ -41,5 +41,7 @@ modules:
       - type: script
         dest-filename: q2pro.sh
         commands:
-          - ls ${XDG_DATA_HOME}/baseq2/pak0.pak || zenity --error --text "Game data (/baseq2/ etc.)  must be added to:\n${XDG_DATA_HOME}/baseq2/" --ok-label "Close" --width=400
+          - ls ${XDG_DATA_HOME}/baseq2/pak0.pak || zenity --error --text "Game data
+            (/baseq2/ etc.)  must be added to:\n${XDG_DATA_HOME}/baseq2/" --ok-label
+            "Close" --width=400
           - /app/bin/q2pro "$@"
