@@ -38,6 +38,7 @@
   <url type="homepage">http://skuller.net/q2pro</url>
 
   <releases>
+    <release version="2617" date="2023-01-24"/>
     <release version="2307" date="2022-11-15"/>
     <release version="2261" date="2022-10-10"/>
     <release version="r2146" date="2022-08-28"/>
