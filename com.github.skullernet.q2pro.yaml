@@ -29,8 +29,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/skullernet/q2pro.git
-        tag: r2617
-        commit: 270006861160f38666edc438f8bf027bed7e8e42
+        tag: r2815
+        commit: a39dfe3793ddd0b658bd704980a56a3cf8ad18f4
         x-checker-data:
           type: git
           tag-pattern: ^r([\d.]+)$
