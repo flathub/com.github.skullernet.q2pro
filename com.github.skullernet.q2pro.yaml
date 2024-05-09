@@ -1,6 +1,6 @@
 app-id: com.github.skullernet.q2pro
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: q2pro.sh
 rename-icon: q2pro
@@ -13,12 +13,14 @@ finish-args:
   - --socket=pulseaudio
   - --device=dri
 modules:
+  - shared-modules/libdecor/libdecor.json
   - name: q2pro
     buildsystem: meson
     builddir: true
     build-options:
       config-opts:
         - -Dhomedir=/var/data
+        - -Dwayland=enabled
     post-install:
       - install -Dm775 ../q2pro.sh -t ${FLATPAK_DEST}/bin/
       - install -Dm644 ../q2pro.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps
