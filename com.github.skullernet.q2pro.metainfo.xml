@@ -5,6 +5,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Q2PRO</name>
+  <developer_name>skullernet</developer_name>
   <summary>Enhanced Quake 2 client</summary>
 
   <description>
@@ -38,10 +39,10 @@
   <url type="homepage">http://skuller.net/q2pro</url>
 
   <releases>
-    <release version="2815" date="2023-10-09"/>
-    <release version="2617" date="2023-01-24"/>
-    <release version="2307" date="2022-11-15"/>
-    <release version="2261" date="2022-10-10"/>
+    <release version="r2815" date="2023-10-09"/>
+    <release version="r2617" date="2023-01-24"/>
+    <release version="r2307" date="2022-11-15"/>
+    <release version="r2261" date="2022-10-10"/>
     <release version="r2146" date="2022-08-28"/>
     <release version="r2004" date="2022-08-04"/>
     <release version="r1861" date="2021-09-12"/>
